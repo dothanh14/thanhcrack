@@ -1,70 +1,50 @@
 <!doctype html>
 <html lang="vi">
 <head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ThanhCrack – Game Hub</title>
+  <link rel="stylesheet" href="style.css" />
+
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4053699777471766"
      crossorigin="anonymous"></script>
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CRACKFORFUN – Game Hub</title>
-  <meta name="description" content="Trang chia sẻ game miễn phí, hợp pháp và an toàn. Duyệt qua danh sách game, tải nhanh và ủng hộ website qua link rút gọn." />
-
-  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
     <div class="container">
-      <a href="/" class="logo">CRACKFORFUN</a>
+      <a href="./index.html" class="logo">ThanhCrack</a>
       <nav class="nav">
-        <a href="/games.html">Games</a>
+        <a href="./games.html">Games</a>
+        <a href="./admin/">Admin</a>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <h1>Chào mừng đến với CRACKFORFUN</h1>
-    <p>Trang chia sẻ game miễn phí, hợp pháp và an toàn. Bạn có thể duyệt qua danh sách game hoặc xem chi tiết từng game. Các liên kết tải nhanh và link rút gọn giúp ủng hộ website.</p>
+    <h1>Chào mừng đến với ThanhCrack</h1>
+    <p>Website chia sẻ game miễn phí, an toàn và hợp pháp. Bạn có thể duyệt danh sách game, xem chi tiết, và tải về trực tiếp. Một phần link rút gọn giúp ủng hộ duy trì website.</p>
 
-    <!-- Quảng cáo giữa nội dung -->
+    <!-- Google AdSense Banner -->
     <ins class="adsbygoogle"
          style="display:block; text-align:center; margin: 20px auto;"
          data-ad-client="ca-pub-4053699777471766"
          data-ad-slot="1234567890"
          data-ad-format="auto"
          data-full-width-responsive="true"></ins>
-    <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
     <h2>Game nổi bật</h2>
     <div id="featured" class="grid"></div>
-
-    <p><a class="btn primary" href="/games.html">Xem tất cả game</a></p>
+    <p><a class="btn primary" href="./games.html">Xem tất cả game</a></p>
   </main>
 
-  <footer>
-    © 2025 <strong>CRACKFORFUN</strong>. Nội dung game phải hợp pháp. Các liên kết tải có thể chứa quảng cáo.
-  </footer>
+  <footer>© 2025 ThanhCrack. Chia sẻ vì cộng đồng, không chứa nội dung vi phạm bản quyền.</footer>
 
-  <!-- Netlify Identity widget để xử lý Accept Invite / Login -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script>
-    // Nếu chưa đăng nhập, khi login xong tự chuyển vào /admin
-    if (window.netlifyIdentity) {
-      window.netlifyIdentity.on('init', (user) => {
-        if (!user) {
-          window.netlifyIdentity.on('login', () => {
-            document.location.href = '/admin/';
-          });
-        }
-      });
-    }
-
-    // Load danh sách game nổi bật từ data/games.json
     async function loadFeatured() {
       try {
-        const res = await fetch('/data/games.json', { cache: 'no-store' });
+        const res = await fetch('data/games.json', { cache: 'no-store' });
         const data = await res.json();
         const featured = document.getElementById('featured');
         const items = (data.items || []).slice(0, 6);
@@ -74,11 +54,11 @@
             ${g.thumb ? `<img src="${g.thumb}" alt="${g.title}">` : ''}
             <h3>${g.title}</h3>
             <p>${g.excerpt || ''}</p>
-            <a class="btn" href="/game.html?id=${encodeURIComponent(g.slug)}">Xem chi tiết</a>
+            <a class="btn" href="game.html?id=${encodeURIComponent(g.slug)}">Xem chi tiết</a>
           </article>
         `).join('');
       } catch (e) {
-        console.error('⚠️ Lỗi tải danh sách game:', e);
+        console.error('Lỗi tải danh sách game:', e);
       }
     }
     loadFeatured();
