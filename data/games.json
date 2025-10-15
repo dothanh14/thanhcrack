@@ -1,26 +1,18 @@
 {
   "items": [
     {
-      "title": "0 A.D.",
-      "slug": "0ad",
-      "excerpt": "RTS mã nguồn mở, miễn phí.",
-      "thumb": "/images/0ad.jpg",
-      "clean_url": "https://play0ad.com/",
-      "short_url": "",
-      "host_url": "",
-      "filecrypt_url": "",
-      "body": "Game chiến thuật thời gian thực mã nguồn mở, free."
+      "title": "Grand Theft Auto V",
+      "slug": "gta-v",
+      "excerpt": "Game thế giới mở kinh điển của Rockstar.",
+      "thumb": "images/uploads/gta-v.jpg",
+      "download": "https://example.com/gta-v"
     },
     {
-      "title": "Veloren",
-      "slug": "veloren",
-      "excerpt": "Game RPG, open-world được viết bằng Rust.",
-      "thumb": "/images/veloren.jpg",
-      "clean_url": "https://www.veloren.net/",
-      "short_url": "",
-      "host_url": "",
-      "filecrypt_url": "",
-      "body": "Veloren là game open-world RPG lấy cảm hứng từ Cube World, được phát triển bằng Rust."
+      "title": "Need for Speed: Heat",
+      "slug": "nfs-heat",
+      "excerpt": "Đua xe tốc độ cao, cháy phố mỗi đêm.",
+      "thumb": "images/uploads/nfs-heat.jpg",
+      "download": "https://example.com/nfs-heat"
     }
   ]
 }
