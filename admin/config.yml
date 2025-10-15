@@ -1,44 +1,27 @@
-site_url: https://crackforfun.netlify.app
-
 backend:
-  name: git-gateway
+  name: github
+  repo: dothanh14/ThanhCrack   # 👈 Thay bằng tên GitHub repo của bạn
   branch: main
-
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: YOUR_CLOUD_NAME
-    api_key: YOUR_API_KEY
-    default_transformations:
-      - - fetch_format: auto
-          quality: auto
+  base_url: https://api.github.com
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
   - name: "games"
-    label: "Danh sách game"
+    label: "Games"
     label_singular: "Game"
-    folder: "data/games"
-    create: true
-    extension: "json"
-    format: "json"
-    slug: "{{slug}}"
-    preview_path: "game.html?id={{slug}}"
-    fields:
-      - { label: "Tiêu đề", name: "title", widget: "string" }
-      - { label: "Slug (tự động, không dấu)", name: "slug", widget: "string" }
-      - { label: "Mô tả ngắn", name: "excerpt", widget: "text" }
-      - { label: "Ảnh thumbnail", name: "thumb", widget: "image", required: false }
-      - { label: "Link tải chính", name: "main_url", widget: "string" }
-      - { label: "Link dự phòng", name: "backup_url", widget: "string", required: false }
-      - { label: "Link rút gọn ủng hộ", name: "support_url", widget: "string", required: false }
-      - { label: "Nội dung chi tiết", name: "body", widget: "markdown" }
-      - label: "SEO"
-        name: "seo"
-        widget: "object"
+    files:
+      - file: "data/games.json"
+        label: "Danh sách Game"
+        name: "game_list"
         fields:
-          - { label: "Tiêu đề SEO", name: "meta_title", widget: "string", required: false }
-          - { label: "Mô tả SEO", name: "meta_description", widget: "text", required: false }
-          - { label: "Từ khóa", name: "meta_keywords", widget: "string", required: false }
+          - label: "Danh sách Games"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Tiêu đề", name: "title", widget: "string" }
+              - { label: "Slug", name: "slug", widget: "string" }
+              - { label: "Mô tả ngắn", name: "excerpt", widget: "text" }
+              - { label: "Ảnh thumbnail", name: "thumb", widget: "image" }
+              - { label: "Link tải chính", name: "download", widget: "string" }
